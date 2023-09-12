@@ -1,4 +1,3 @@
-function getrandomQuotes (){
 const quotes =[
   {
   quotes:"The way I see it you want the rainbow you got to put up with the rain",
@@ -22,27 +21,27 @@ const quotes =[
   source: "Michael Phelps"
   },
 ];
-  console.log(quotes);
- 
-  const randomIndex =  Math.floor (Math.random()* quotes.length);
+
+function getRandomQuote(x){
+  
+  const randomIndex =  Math.floor(Math.random()* x.length);
   const randomQuote = quotes[randomIndex]; 
   return randomQuote;
-  }
- const randomQuote = getRandomQuote();
-  console.log(randomQuote);
+}
 
 function printQuote(){
-  const randomQuote = getRandomQuote();
-let htmlString = `<p class="quote">quote text</p>`;
- `<p class="source">quote source`;
+  const randomQuote = getRandomQuote(quotes);
+  let htmlString = `
+    <p class="quote">${randomQuote.quotes}</p>;
+    <p class="source">${randomQuote.source}`;
+    if (randomQuote.citation){
+      htmlString += `<span class="citation">${randomQuote.citation}</span>`;
+      }
+    if (randomQuote.year){
+        htmlString += `<span class="year">${randomQuote.year}</span>`;
+       }
+      `</p>`;
+    document.getElementById('quotebox').innerHTML = htmlString;
 }
-if (randomQuote.citation){
-<span class="citation">quote citation</span>;
-  htmlString += '<span class="year">quote year</span>';
-}
- if (randomQuote.year){
-    htmlString +=`</p>`;
-  document.getElementById('quote.box').innerHTML = htmlString;
- }
+ 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-printQuote();
