@@ -21,6 +21,10 @@ const quotes =[
   source: "Michael Phelps"
   },
 ];
+/**
+ * 
+ * Quote array listed with two properties quote itself and its source. One object having 3 properties which is the year that
+ */
 
 function getRandomQuote(x){
   
@@ -28,7 +32,9 @@ function getRandomQuote(x){
   const randomQuote = quotes[randomIndex]; 
   return randomQuote;
 }
-
+/**
+ * function gets random quote every time you call this function, 
+ */
 function printQuote(){
   const randomQuote = getRandomQuote(quotes);
   let htmlString = `
@@ -41,7 +47,8 @@ function printQuote(){
         htmlString += `<span class="year">${randomQuote.year}</span>`;
        }
       `</p>`;
-    document.getElementById('quotebox').innerHTML = htmlString;
+    // Function calls to produce a random quote, it also checks for the citation and year //
+    document.getElementById('quote-box').innerHTML = htmlString;
 }
  
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
